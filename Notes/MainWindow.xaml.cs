@@ -23,6 +23,7 @@ namespace Notes
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }
