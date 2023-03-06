@@ -5,11 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Height="900" Width="800">
     <Grid>
-        <RichTextBox>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*"/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <RichTextBox x:Name="rtbNoteBox" Grid.Row="1" Margin="15 0 15 0"> 
         </RichTextBox>
 
+        <TextBlock Text="Мои заметки" Grid.Column="1" 
+                   TextAlignment="Center" VerticalAlignment="Center"
+                   FontSize="20">
+        </TextBlock>
+        
+        <!-- Область инструментов-->
+        <StackPanel Orientation="Horizontal">
+            <ToolBar Padding="10" Background="White" ToolBarTray.IsLocked="True" IsOverflowOpen="False">
+                <Separator></Separator>
+                <Button x:Name="btnSave" Click="btnSave_Click">
+                    <Image Source="/Resources/saveButton.png"></Image>
+                </Button>
+                <Separator></Separator>
+                <ToggleButton x:Name="tbBold">
+                    <Image Source="/Resources/boldButton.png"/>
+                </ToggleButton>
+                <ToggleButton x:Name="tbItalic">
+                    <Image Source="/Resources/italicButton.png"/>
+                </ToggleButton>
+                <ToggleButton  x:Name="tbUnderlined">
+                    <Image Source="/Resources/underlinedButton.png"/>
+                </ToggleButton>
+                <Separator></Separator>
+            </ToolBar>
+
+            <ComboBox Text="2233333"></ComboBox>
+            <ComboBox Text="2233333"></ComboBox>
+            
+            
+            
+        </StackPanel>
+       
+        
+        
+        <!-- Область заметок --> 
+        <ScrollViewer Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+                <TabControl x:Name="tcNotesList" 
+                        Grid.Row="1" Grid.Column="1" 
+                        TabStripPlacement="Right">
+                    <TabItem  Header="213" Width="200" Height="100">
+
+                    </TabItem>
+                    <TabItem  Header="213">
+
+                    </TabItem>
+                    <TabItem Header="213" >
+
+                    </TabItem>
+                    <TabItem  Header="213">
+
+                    </TabItem>
+                </TabControl>
+                <Button x:Name="btnAddNote" 
+                    Content="+" Height="50" Width="50" Margin="15" 
+                    Click="btnAddNote_Click"></Button>
+                <Button x:Name="test" 
+                    Content="+" Height="50" Width="50" Margin="15" 
+                    Click="test_Click"></Button>
+                
+                
+            </StackPanel>
+        </ScrollViewer>
+              
     </Grid>
 </Window>

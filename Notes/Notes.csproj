@@ -7,4 +7,28 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\boldButton.png" />
+    <None Remove="Resources\italicButton.png" />
+    <None Remove="Resources\saveButton.png" />
+    <None Remove="Resources\underlinedButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\boldButton.png" />
+    <Resource Include="Resources\italicButton.png" />
+    <Resource Include="Resources\saveButton.png" />
+    <Resource Include="Resources\underlinedButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+  </ItemGroup>
+
 </Project>
