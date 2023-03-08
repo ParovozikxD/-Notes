@@ -11,3 +11,9 @@ Tools:
 
 Design:
 - MaterialDesignThemes (4.8.0)
+
+Opportunities:
+- Add notes (Images and text support)
+- Edit notes
+- Format text
+- Save to DB
