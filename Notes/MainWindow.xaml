@@ -5,83 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notes"
         mc:Ignorable="d"
-        Height="900" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Height="900" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.75*"/>
             <ColumnDefinition Width="0.25*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="65"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <RichTextBox x:Name="rtbNoteBox" Grid.Row="1" Margin="15 0 15 0"> 
-        </RichTextBox>
+        <Button x:Name="btnAddNote" Grid.Column="1" 
+                Style="{StaticResource MaterialDesignPaperSecondaryDarkButton}"
+                Content="Новая заметка"
+                Width="150"
+                Click="btnAddNote_Click"></Button>
 
-        <TextBlock Text="Мои заметки" Grid.Column="1" 
-                   TextAlignment="Center" VerticalAlignment="Center"
-                   FontSize="20">
-        </TextBlock>
-        
-        <!-- Область инструментов-->
-        <StackPanel Orientation="Horizontal">
-            <ToolBar Padding="10" Background="White" ToolBarTray.IsLocked="True" IsOverflowOpen="False">
+        <!-- Область инструментов-->        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            
+            <StackPanel.Effect>
+                <DropShadowEffect BlurRadius="20" Color="MediumPurple"></DropShadowEffect>
+            </StackPanel.Effect>
+            
+            <ToolBar Background="White" ToolBarTray.IsLocked="True" Style="{StaticResource MaterialDesignToolBar}">
                 <Separator></Separator>
-                <Button x:Name="btnSave" Click="btnSave_Click">
-                    <Image Source="/Resources/saveButton.png"></Image>
+                
+                <Button x:Name="btnSave" Height="50" Width="70" Click="btnSave_Click" Margin="20 0 0 0" Style="{StaticResource MaterialDesignOutlinedButton}">
+                    <Image Source="/Resources/saveButton.ico"></Image>
                 </Button>
+                
                 <Separator></Separator>
-                <ToggleButton x:Name="tbBold">
-                    <Image Source="/Resources/boldButton.png"/>
+                
+                <ToggleButton Cursor="Hand" Command="EditingCommands.ToggleBold" Margin="20 0 0 0" Style="{StaticResource MaterialDesignFlatToggleButton}">
+                    <Image Source="/Resources/boldButton.ico"/>
                 </ToggleButton>
-                <ToggleButton x:Name="tbItalic">
-                    <Image Source="/Resources/italicButton.png"/>
+                <ToggleButton Cursor="Hand" Command="EditingCommands.ToggleItalic" Margin="20 0 0 0" Style="{StaticResource MaterialDesignFlatToggleButton}">
+                    <Image Source="/Resources/italicButton.ico"/>
                 </ToggleButton>
-                <ToggleButton  x:Name="tbUnderlined">
-                    <Image Source="/Resources/underlinedButton.png"/>
+                <ToggleButton Cursor="Hand" Command="EditingCommands.ToggleUnderline" Margin="20 0 0 0" Style="{StaticResource MaterialDesignFlatToggleButton}">
+                    <Image Source="/Resources/underlinedButton.ico"/>
                 </ToggleButton>
+                
                 <Separator></Separator>
+                
+                <ComboBox x:Name="cbFontFamilies" Margin="60 0 0 0" Width="75"
+                      ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"
+                      materialDesign:HintAssist.Hint="Шрифт"
+                      SelectionChanged="cbFontFamilies_SelectionChanged"/>
+                <ComboBox x:Name="cbFontSize" Margin="60 0 0 0"
+                      SelectionChanged="cbFontSize_SelectionChanged"
+                      materialDesign:HintAssist.Hint="Размер шрифта"         
+                      Style="{StaticResource MaterialDesignComboBox}"/>
             </ToolBar>
-
-            <ComboBox Text="2233333"></ComboBox>
-            <ComboBox Text="2233333"></ComboBox>
-            
-            
-            
         </StackPanel>
-       
+               
         
-        
-        <!-- Область заметок --> 
-        <ScrollViewer Grid.Row="1" Grid.Column="1">
+        <!-- Область заметок -->
+        <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2">
             <StackPanel>
-                <TabControl x:Name="tcNotesList" 
+                <TabControl x:Name="tcNotesList"
+                        ItemContainerStyle="{StaticResource MaterialDesignTabItem}"
                         Grid.Row="1" Grid.Column="1" 
-                        TabStripPlacement="Right">
-                    <TabItem  Header="213" Width="200" Height="100">
-
-                    </TabItem>
-                    <TabItem  Header="213">
-
-                    </TabItem>
-                    <TabItem Header="213" >
-
-                    </TabItem>
-                    <TabItem  Header="213">
-
-                    </TabItem>
+                        TabStripPlacement="Right"
+                        SelectionChanged="tcNotesList_SelectionChanged"
+                        VerticalContentAlignment="Stretch"
+                        MinHeight="600">
                 </TabControl>
-                <Button x:Name="btnAddNote" 
-                    Content="+" Height="50" Width="50" Margin="15" 
-                    Click="btnAddNote_Click"></Button>
-                <Button x:Name="test" 
-                    Content="+" Height="50" Width="50" Margin="15" 
-                    Click="test_Click"></Button>
-                
-                
             </StackPanel>
         </ScrollViewer>
-              
+
     </Grid>
 </Window>

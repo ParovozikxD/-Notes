@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Note
+    public class Note
     {
-
         public int NoteID {  get; set; }
 
         public string NoteName { get; set; }
@@ -22,11 +21,5 @@ namespace Notes
             NoteName = noteName;
             NoteDescription = noteDescription;
         }
-
-
-        
-
-
-
     }
 }

@@ -5,27 +5,29 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>ProjectIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\boldButton.png" />
-    <None Remove="Resources\italicButton.png" />
-    <None Remove="Resources\saveButton.png" />
-    <None Remove="Resources\underlinedButton.png" />
+    <None Remove="Resources\boldButton.ico" />
+    <None Remove="Resources\italicButton.ico" />
+    <None Remove="Resources\saveButton.ico" />
+    <None Remove="Resources\underlinedButton.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\boldButton.png" />
-    <Resource Include="Resources\italicButton.png" />
-    <Resource Include="Resources\saveButton.png" />
-    <Resource Include="Resources\underlinedButton.png" />
+    <Content Include="ProjectIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+    <Resource Include="Resources\boldButton.ico" />
+    <Resource Include="Resources\italicButton.ico" />
+    <Resource Include="Resources\saveButton.ico" />
+    <Resource Include="Resources\underlinedButton.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.8.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
