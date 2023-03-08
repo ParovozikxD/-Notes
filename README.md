@@ -17,3 +17,5 @@ Opportunities:
 - Edit notes
 - Format text
 - Save to DB
+
+DataBase Folder contains test database "Notes.db"
