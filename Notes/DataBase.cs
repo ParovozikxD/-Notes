@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Notes
 {
@@ -34,7 +32,7 @@ namespace Notes
                 notesContext.Notes.Remove(note);
                 notesContext.SaveChanges();
 
-                return true;           
+                return true;
             }
 
             return false;
@@ -46,7 +44,7 @@ namespace Notes
 
             if (note != null)
             {
-                note.NoteDescription = newNoteDescription;           
+                note.NoteDescription = newNoteDescription;
                 notesContext.SaveChanges();
 
                 return true;
