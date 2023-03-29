@@ -1,4 +1,4 @@
-# Notes
+# :notebook_with_decorative_cover: Notes
 
 Note Management Application
 
